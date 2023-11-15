@@ -1,7 +1,7 @@
 {
-  "name": "@wojtekmaj/enzyme-adapter-utils",
-  "version": "0.2.0",
-  "description": "JavaScript Testing utilities for React",
+  "name": "@mahpooya/enzyme-adapter-utils",
+  "version": "0.2.1",
+  "description": "JavaScript Testing utilities for React (forked for editing react dependency)",
   "homepage": "https://enzymejs.github.io/enzyme/",
   "main": "build",
   "scripts": {
@@ -10,7 +10,8 @@
     "lint": "eslint --ext js,jsx .",
     "postinstall": "husky install",
     "prepack": "yarn clean && yarn build",
-    "prettier": "prettier --check . --cache",
+    "prettier": "prettier --check \"src/**/*.{js,jsx,ts,css,html}\" --cache",
+    "prettier:check": "prettier --check \"src/**/*.{js,jsx,ts,css,html}\"",
     "test": "yarn lint && yarn prettier",
     "watch": "yarn build -w"
   },
@@ -30,31 +31,32 @@
   ],
   "author": "Jordan Harband <ljharb@gmail.com>",
   "contributors": [
-    "Wojciech Maj <kontakt@wojtekmaj.pl>"
+    "Wojciech Maj <kontakt@wojtekmaj.pl>",
+    "Mahpooya Damavand <mahpooya@gmail.com>"
   ],
   "license": "MIT",
   "dependencies": {
-    "function.prototype.name": "^1.1.0",
-    "has": "^1.0.0",
-    "object.fromentries": "^2.0.0",
-    "prop-types": "^15.7.0"
+    "function.prototype.name": "^1.1.6",
+    "has": "^1.0.4",
+    "object.fromentries": "^2.0.7",
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.12.0",
-    "@babel/core": "^7.12.0",
-    "@babel/preset-env": "^7.15.0",
-    "@babel/preset-react": "^7.15.0",
-    "eslint": "^8.26.0",
-    "eslint-config-wojtekmaj": "^0.7.1",
-    "husky": "^8.0.0",
-    "prettier": "^2.7.0",
-    "pretty-quick": "^3.1.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "rimraf": "^3.0.0"
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@babel/preset-react": "^7.22.15",
+    "eslint": "^8.52.0",
+    "eslint-config-wojtekmaj": "^0.9.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "^5.0.5"
   },
   "peerDependencies": {
-    "react": "^17.0.0-0"
+    "react": "^17"
   },
   "resolutions": {
     "semver@7.0.0": "^7.0.0"
@@ -68,8 +70,16 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/wojtekmaj/enzyme-adapter-utils.git"
+    "url": "git+https://github.com/mahpooya/enzyme-adapter-utils.git"
   },
-  "funding": "https://github.com/wojtekmaj/enzyme-adapter-utils?sponsor=1",
-  "packageManager": "yarn@3.1.0"
+  "funding": "https://github.com/mahpooya/enzyme-adapter-utils?sponsor=1",
+  "packageManager": "yarn@3.1.0",
+  "bugs": {
+    "url": "https://github.com/mahpooya/enzyme-adapter-utils/issues"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,css,html}": [
+      "npm run prettier:check"
+    ]
+  }
 }
